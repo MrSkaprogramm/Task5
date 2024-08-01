@@ -1,4 +1,4 @@
-package com.danliuk.model;
+package com.sfia.model;
 
 import lombok.Getter;
 import lombok.Setter;
