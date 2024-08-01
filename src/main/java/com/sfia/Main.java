@@ -19,6 +19,9 @@ public class Main {
 
         do {
             String input = getInput();
+            if(input.contains("“")) {
+                input = input.replaceAll("“", "\"");
+            }
             BusTicket busTicket = new ObjectMapper().readValue(input, BusTicket.class);
             System.out.println(busTicket.toString());
             stringInvalidViolations = main.validateTicket(busTicket);
@@ -122,7 +125,6 @@ public class Main {
         String mostFrequentViolation = "No invalid tickets";
 
         for (Map.Entry<String, Integer> entry : totalInvalidViolations.entrySet()) {
-            System.out.println(entry.getKey() + " " + entry.getValue());
             if (entry.getValue() > maxCount) {
                 maxCount = entry.getValue();
                 mostFrequentViolation = entry.getKey();
